@@ -1,4 +1,10 @@
-import { ObjectSchema, versionSchemas } from '@cypress/schema-tools'
+import {
+  ObjectSchema,
+  SchemaCollection,
+  bind,
+  combineSchemas,
+  versionSchemas,
+} from '@cypress/schema-tools'
 
 /**
  * Todo item sent by the client.
@@ -33,7 +39,16 @@ const PostTodoRequest100: ObjectSchema = {
         description: 'Is this todo item completed?',
       },
     },
+    // require all properties
+    required: true,
+    // do not allow any extra properties
     additionalProperties: false,
   },
   example: postTodoExample100,
 }
+
+const PostTodoRequest = versionSchemas(PostTodoRequest100)
+
+export const schemas: SchemaCollection = combineSchemas(PostTodoRequest)
+
+export const api = bind({ schemas })
