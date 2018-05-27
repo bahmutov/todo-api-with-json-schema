@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TODO request object missing text 1`] = `
+"Schema postTodoRequest@1.0.0 violated
+
+Errors:
+data.text is required
+
+Current object:
+{
+  \\"done\\": true
+}
+
+Expected object like this:
+{
+  \\"done\\": false,
+  \\"text\\": \\"do something\\"
+}"
+`;
