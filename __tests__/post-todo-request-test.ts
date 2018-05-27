@@ -30,3 +30,14 @@ test('bind schemas', () => {
     done: false,
   })
 })
+
+test('bind schemas and assert an object', () => {
+  const api = bind({ schemas })
+  const schemaName = 'postTodoRequest'
+  const schemaVersion = '1.0.0'
+  const example = api.getExample(schemaName)(schemaVersion)
+  const assertRequest = api.assertSchema(schemaName, schemaVersion)
+  expect(() => {
+    assertRequest(example)
+  }).not.toThrow()
+})
