@@ -3,6 +3,9 @@ import { api } from './schemas'
 const assertTodoRequest = api.assertSchema('PostTodoRequest', '1.0.0')
 const assertTodoResponse = api.assertSchema('PostTodoResponse', '1.0.0')
 
+const schemaNameHeader = 'x-schema-name'
+const schemaVersionHeader = 'x-schema-version'
+
 const isSuccessful = res => res.statusCode === 200
 
 const validateJsonResponse = res => {
@@ -11,6 +14,8 @@ const validateJsonResponse = res => {
     // TODO: only check successful responses
     // otherwise we could be checking JSON error objects
     assertTodoResponse(data)
+    res.set(schemaNameHeader, 'PostTodoResponse')
+    res.set(schemaVersionHeader, '1.0.0')
     return resJson(data)
   }
 }
