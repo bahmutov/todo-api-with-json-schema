@@ -4,5 +4,10 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["es2015"]
-  }
+  },
+  "plugins": [
+    {
+      "name": "typescript-snapshots-plugin"
+    }
+  ]
 }
