@@ -9,7 +9,7 @@
     "start": "ts-node node_modules/.bin/json-server db.json --middlewares node_modules/json-server-reset --middlewares ./add-guid.ts --middlewares ./schema-check.ts",
     "reset": "http POST :3000/reset todos:=[]",
     "document": "ts-node document > schemas.md",
-    "build": "tsc",
+    "build": "tsc || true",
     "unit": "jest",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
