@@ -4,10 +4,11 @@
   "description": "Example todo API with json schema validation",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "start-server-and-test :3000 unit",
     "start": "ts-node node_modules/.bin/json-server db.json --middlewares node_modules/json-server-reset --middlewares ./schema-check.ts",
     "reset": "http POST :3000/reset todos:=[]",
-    "document": "ts-node document > schemas.md"
+    "document": "ts-node document > schemas.md",
+    "unit": "jest"
   },
   "repository": {
     "type": "git",
@@ -34,9 +35,12 @@
     "typescript": "2.8.3"
   },
   "devDependencies": {
+    "@types/got": "8.3.1",
     "@types/jest": "22.2.3",
+    "got": "8.3.1",
     "jest": "23.0.0",
     "prettier": "1.12.1",
+    "start-server-and-test": "1.4.1",
     "ts-jest": "22.4.6"
   },
   "jest": {
