@@ -1,4 +1,5 @@
 import { SchemaCollection, bind, combineSchemas } from '@cypress/schema-tools'
+import { formats } from '../formats'
 import { PostTodoRequest } from './post-todo-request'
 import { PostTodoResponse } from './post-todo-response'
 
@@ -7,7 +8,7 @@ export const schemas: SchemaCollection = combineSchemas(
   PostTodoResponse
 )
 
-export const api = bind({ schemas })
+export const api = bind({ schemas, formats: formats })
 /*
   api has methods to validate, sanitize, etc. objects against "schemas"
   {

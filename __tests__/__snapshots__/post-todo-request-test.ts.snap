@@ -8,12 +8,14 @@ data.text is required
 
 Current object:
 {
-  \\"done\\": true
+  \\"done\\": true,
+  \\"uuid\\": \\"4899e1a9-e38f-43f9-a765-35b81a41c65d\\"
 }
 
 Expected object like this:
 {
   \\"done\\": false,
-  \\"text\\": \\"do something\\"
+  \\"text\\": \\"do something\\",
+  \\"uuid\\": \\"20514af9-2a2a-4712-9c1e-0510c288c9ec\\"
 }"
 `;

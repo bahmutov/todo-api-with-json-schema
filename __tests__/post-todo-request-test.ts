@@ -1,13 +1,14 @@
 import { assertSchema, bind } from '@cypress/schema-tools'
 import { schemas } from '../schemas'
 
-describe('POST /todo request', () => {
+describe.only('POST /todo request', () => {
   const assertTodoRequest = assertSchema(schemas)('postTodoRequest', '1.0.0')
 
   it('valid TODO request object', () => {
     const todo = {
       text: 'use scheams',
       done: true,
+      uuid: '4899e1a9-e38f-43f9-a765-35b81a41c65d',
     }
     expect(() => {
       assertTodoRequest(todo)
@@ -17,6 +18,7 @@ describe('POST /todo request', () => {
   it('TODO request object missing text', () => {
     const todo = {
       done: true,
+      uuid: '4899e1a9-e38f-43f9-a765-35b81a41c65d',
     }
     expect(() => {
       assertTodoRequest(todo)
@@ -29,6 +31,7 @@ describe('POST /todo request', () => {
     expect(todoRequestExample).toEqual({
       text: 'do something',
       done: false,
+      uuid: '20514af9-2a2a-4712-9c1e-0510c288c9ec',
     })
   })
 
