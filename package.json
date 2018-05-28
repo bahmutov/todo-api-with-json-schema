@@ -4,6 +4,7 @@
   "description": "Example todo API with json schema validation",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm run document",
     "test": "start-server-and-test :3000 unit",
     "start": "ts-node node_modules/.bin/json-server db.json --middlewares node_modules/json-server-reset --middlewares ./schema-check.ts",
     "reset": "http POST :3000/reset todos:=[]",
