@@ -1,7 +1,7 @@
 import { assertSchema, bind } from '@cypress/schema-tools'
 import { schemas } from '../schemas'
 
-describe.only('POST /todo request', () => {
+describe('POST /todo request', () => {
   const assertTodoRequest = assertSchema(schemas)('postTodoRequest', '1.0.0')
 
   it('valid TODO request object', () => {

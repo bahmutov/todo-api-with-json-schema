@@ -1,4 +1,7 @@
 import { ObjectSchema, versionSchemas } from '@cypress/schema-tools'
+import { formats } from '../formats'
+
+type uuid = string
 
 /**
  * Todo item saved by the server and returned to the client.
@@ -7,12 +10,14 @@ type PostTodoResponseExample100 = {
   text: string
   done: boolean
   id: number
+  uuid: uuid
 }
 
 const postTodoResponseExample100: PostTodoResponseExample100 = {
   text: 'do something',
   done: false,
   id: 2,
+  uuid: '3372137d-b582-4e32-807d-af3021112efa',
 }
 
 const PostTodoResponse100: ObjectSchema = {
@@ -38,6 +43,11 @@ const PostTodoResponse100: ObjectSchema = {
         type: 'integer',
         minimum: 1,
         description: 'Item server id',
+      },
+      uuid: {
+        type: 'string',
+        format: formats.uuid.name, // "uuid"
+        description: 'item random GUID',
       },
     },
     // require all properties

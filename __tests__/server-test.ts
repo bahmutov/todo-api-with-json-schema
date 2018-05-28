@@ -28,6 +28,8 @@ describe('server api', () => {
       json: true,
       body: example,
     })
+    // HACK to match dynamic uuid
+    response.body.uuid = example.uuid
     expect(response.body).toEqual({
       ...example,
       id: 1,
