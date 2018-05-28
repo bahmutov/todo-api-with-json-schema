@@ -9,7 +9,10 @@
     "start": "ts-node node_modules/.bin/json-server db.json --middlewares node_modules/json-server-reset --middlewares ./add-guid.ts --middlewares ./schema-check.ts",
     "reset": "http POST :3000/reset todos:=[]",
     "document": "ts-node document > schemas.md",
-    "unit": "jest"
+    "unit": "jest",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:test": "start-server-and-test :3000 cy:run"
   },
   "repository": {
     "type": "git",
@@ -40,6 +43,7 @@
     "@types/got": "8.3.1",
     "@types/jest": "22.2.3",
     "@types/uuid": "3.4.3",
+    "cypress": "2.1.0",
     "got": "8.3.1",
     "jest": "23.0.0",
     "prettier": "1.12.1",

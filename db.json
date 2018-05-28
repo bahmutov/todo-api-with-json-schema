@@ -1,9 +1,9 @@
 {
   "todos": [
     {
-      "text": "sanitize using schema",
-      "done": false,
-      "uuid": "6d3c6555-ba00-40ca-88e2-11dff93172ec",
+      "text": "use Cypress",
+      "done": true,
+      "uuid": "ac7426d4-00d6-448e-96a3-d45f77196e53",
       "id": 1
     }
   ]
