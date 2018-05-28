@@ -2,11 +2,10 @@
 import uuid from 'uuid/v4'
 
 describe('Todo API', () => {
-  const baseUrl = 'http://localhost:3000'
-  const todosUrl = `${baseUrl}/todos`
+  const todosUrl = '/todos'
 
   beforeEach(function resetState () {
-    const resetUrl = `${baseUrl}/reset`
+    const resetUrl = '/reset'
     cy.request({
       method: 'POST',
       url: resetUrl,
@@ -38,5 +37,21 @@ describe('Todo API', () => {
           id: 1
         })
       )
+  })
+
+  it('adds TODO from fixture', () => {
+    cy.fixture('todo').then(todo => {
+      cy
+        .request({
+          method: 'POST',
+          url: todosUrl,
+          body: todo
+        })
+        .its('headers')
+        .should('include', {
+          'x-schema-name': 'PostTodoResponse',
+          'x-schema-version': '1.0.0'
+        })
+    })
   })
 })

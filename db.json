@@ -1,9 +1,9 @@
 {
   "todos": [
     {
-      "text": "use Cypress",
+      "text": "use fixtures",
       "done": true,
-      "uuid": "ac7426d4-00d6-448e-96a3-d45f77196e53",
+      "uuid": "4a3a8af7-27ff-437b-97e4-1d8738e44191",
       "id": 1
     }
   ]
