@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TODO request object missing text 1`] = `
+exports[`POST /todo request TODO request object missing text 1`] = `
 "Schema postTodoRequest@1.0.0 violated
 
 Errors:
