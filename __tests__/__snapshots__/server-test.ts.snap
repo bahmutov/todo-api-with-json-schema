@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`server api adds todo 1`] = `
+Object {
+  "done": false,
+  "id": 1,
+  "text": "sanitize using schema",
+  "uuid": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+}
+`;

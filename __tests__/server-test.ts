@@ -37,4 +37,21 @@ describe('server api', () => {
     expect(response.headers['x-schema-name']).toBe('PostTodoResponse')
     expect(response.headers['x-schema-version']).toBe('1.0.0')
   })
+
+  it('adds todo', async () => {
+    const response = await got(todosUrl, {
+      method: 'POST',
+      json: true,
+      body: {
+        text: 'sanitize using schema',
+        done: false,
+      },
+    })
+    const schemaName = 'PostTodoResponse'
+    const schemaVersion = '1.0.0'
+    api.assertSchema(schemaName, schemaVersion)(response.body)
+    expect(
+      api.sanitize(schemaName, schemaVersion)(response.body)
+    ).toMatchSnapshot()
+  })
 })

@@ -1,5 +1,6 @@
 import { assertSchema, bind } from '@cypress/schema-tools'
-import { schemas } from '../schemas'
+import { formats } from '../formats'
+import { api, schemas } from '../schemas'
 
 describe('POST /todo request', () => {
   const assertTodoRequest = assertSchema(schemas)('postTodoRequest', '1.0.0')
@@ -44,5 +45,20 @@ describe('POST /todo request', () => {
     expect(() => {
       assertRequest(example)
     }).not.toThrow()
+  })
+
+  it('sanitizes example object', () => {
+    const todo = {
+      text: 'my text',
+      done: false,
+      uuid: '13d46b9e-932f-4265-a4aa-1ee80e2c88d6',
+    }
+    const sanitized = api.sanitize('postTodoRequest', '1.0.0')(todo)
+    expect(sanitized).toEqual({
+      text: 'my text',
+      done: false,
+      // default value should be "ffffffff-ffff-ffff-ffff-ffffffffffff"
+      uuid: formats.uuid.defaultValue,
+    })
   })
 })
