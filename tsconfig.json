@@ -3,11 +3,10 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["es2015"]
+    "lib": ["es2015", "es2016", "dom"],
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "pretty": true
   },
-  "plugins": [
-    {
-      "name": "typescript-snapshots-plugin"
-    }
-  ]
+  "include": ["./schemas/**/*"]
 }

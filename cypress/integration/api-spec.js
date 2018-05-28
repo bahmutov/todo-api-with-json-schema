@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 import uuid from 'uuid/v4'
+import { api } from '../../dist/schemas'
 
 describe('Todo API', () => {
   const todosUrl = '/todos'
@@ -52,6 +53,23 @@ describe('Todo API', () => {
           'x-schema-name': 'PostTodoResponse',
           'x-schema-version': '1.0.0'
         })
+    })
+  })
+
+  it('has todo fixture matching schema', () => {
+    cy.fixture('todo').then(api.assertSchema('PostTodoRequest', '1.0.0'))
+  })
+
+  it('returns new TODO item matching schema', () => {
+    cy.fixture('todo').then(todo => {
+      cy
+        .request({
+          method: 'POST',
+          url: todosUrl,
+          body: todo
+        })
+        .its('body')
+        .then(api.assertSchema('PostTodoResponse', '1.0.0'))
     })
   })
 })

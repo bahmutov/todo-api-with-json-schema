@@ -30,4 +30,5 @@ jobs:
 
       # run tests!
       - run: npm test
+      - run: npm run build
       - run: npm run cy:test
