@@ -5,14 +5,14 @@ describe('server api', () => {
   const baseUrl = 'http://localhost:3000'
   const todosUrl = `${baseUrl}/todos`
 
-  beforeEach(function resetState() {
+  beforeEach(function resetState () {
     const resetUrl = `${baseUrl}/reset`
     return got(resetUrl, {
       method: 'POST',
       json: true,
       body: {
-        todos: [],
-      },
+        todos: []
+      }
     })
   })
 
@@ -26,13 +26,13 @@ describe('server api', () => {
     const response = await got(todosUrl, {
       method: 'POST',
       json: true,
-      body: example,
+      body: example
     })
     // HACK to match dynamic uuid
     response.body.uuid = example.uuid
     expect(response.body).toEqual({
       ...example,
-      id: 1,
+      id: 1
     })
     expect(response.headers['x-schema-name']).toBe('PostTodoResponse')
     expect(response.headers['x-schema-version']).toBe('1.0.0')
@@ -44,8 +44,8 @@ describe('server api', () => {
       json: true,
       body: {
         text: 'sanitize using schema',
-        done: false,
-      },
+        done: false
+      }
     })
     const schemaName = 'PostTodoResponse'
     const schemaVersion = '1.0.0'
