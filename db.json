@@ -1,9 +1,9 @@
 {
   "todos": [
     {
-      "text": "use fixtures",
-      "done": true,
-      "uuid": "4a3a8af7-27ff-437b-97e4-1d8738e44191",
+      "text": "sanitize using schema",
+      "done": false,
+      "uuid": "d494aa89-ceb3-4eea-a1ba-bd3107f5b40c",
       "id": 1
     }
   ]

@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import { merge } from 'ramda'
 import uuid from 'uuid/v4'
 import { api } from '../../dist/schemas'
 
@@ -71,5 +72,24 @@ describe('Todo API', () => {
         .its('body')
         .then(api.assertSchema('PostTodoResponse', '1.0.0'))
     })
+  })
+
+  it('can pass asserted todo', () => {
+    const nameIt = name => value => ({ [name]: value })
+    cy
+      .fixture('todo')
+      .then(api.assertSchema('PostTodoRequest', '1.0.0')) // validates fixture data
+      .then(nameIt('body')) // transforms fixture 'data' into {body: data}
+      .then(
+        merge({
+          // forms cy.request options object
+          // these fields + {body: data}
+          method: 'POST',
+          url: todosUrl
+        })
+      )
+      .then(cy.request) // calls cy.request(options)
+      .its('body') // grabs response.body
+      .then(api.assertSchema('PostTodoResponse', '1.0.0')) // validates response schema
   })
 })

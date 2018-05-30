@@ -1,5 +1,6 @@
 {
   "prettier.semi": false,
   "prettier.singleQuote": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Agila Dracula"
 }
