@@ -14,6 +14,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:test": "start-server-and-test :3000 cy:run",
+    "cy:verify": "cypress verify",
     "dev": "start-test 3000 cy:open"
   },
   "repository": {
