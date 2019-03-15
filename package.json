@@ -13,7 +13,8 @@
     "unit": "jest",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:test": "start-server-and-test :3000 cy:run"
+    "cy:test": "start-server-and-test :3000 cy:run",
+    "dev": "start-test 3000 cy:open"
   },
   "repository": {
     "type": "git",
