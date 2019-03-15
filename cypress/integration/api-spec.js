@@ -23,12 +23,11 @@ describe('Todo API', () => {
       done: true,
       uuid: uuid()
     }
-    cy
-      .request({
-        method: 'POST',
-        url: todosUrl,
-        body: todo
-      })
+    cy.request({
+      method: 'POST',
+      url: todosUrl,
+      body: todo
+    })
       .its('body')
       .should(
         'be.deep.equal',
@@ -43,12 +42,11 @@ describe('Todo API', () => {
 
   it('adds TODO from fixture', () => {
     cy.fixture('todo').then(todo => {
-      cy
-        .request({
-          method: 'POST',
-          url: todosUrl,
-          body: todo
-        })
+      cy.request({
+        method: 'POST',
+        url: todosUrl,
+        body: todo
+      })
         .its('headers')
         .should('include', {
           'x-schema-name': 'PostTodoResponse',
@@ -63,12 +61,11 @@ describe('Todo API', () => {
 
   it('returns new TODO item matching schema', () => {
     cy.fixture('todo').then(todo => {
-      cy
-        .request({
-          method: 'POST',
-          url: todosUrl,
-          body: todo
-        })
+      cy.request({
+        method: 'POST',
+        url: todosUrl,
+        body: todo
+      })
         .its('body')
         .then(api.assertSchema('PostTodoResponse', '1.0.0'))
     })
@@ -76,8 +73,7 @@ describe('Todo API', () => {
 
   it('can pass asserted todo', () => {
     const nameIt = name => value => ({ [name]: value })
-    cy
-      .fixture('todo')
+    cy.fixture('todo')
       .then(api.assertSchema('PostTodoRequest', '1.0.0')) // validates fixture data
       .then(nameIt('body')) // transforms fixture 'data' into {body: data}
       .then(
