@@ -40,12 +40,12 @@
     "quote": "0.4.0",
     "ts-node": "6.1.0",
     "typescript": "2.9.1",
-    "uuid": "3.2.1"
+    "uuid": "3.3.2"
   },
   "devDependencies": {
     "@types/got": "8.3.5",
     "@types/jest": "22.2.3",
-    "@types/uuid": "3.4.3",
+    "@types/uuid": "3.4.4",
     "cypress": "3.2.0",
     "got": "8.3.2",
     "jest": "23.0.0",
