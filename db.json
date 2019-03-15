@@ -1,10 +1,3 @@
 {
-  "todos": [
-    {
-      "text": "sanitize using schema",
-      "done": false,
-      "uuid": "d494aa89-ceb3-4eea-a1ba-bd3107f5b40c",
-      "id": 1
-    }
-  ]
+  "todos": []
 }

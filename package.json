@@ -6,8 +6,8 @@
   "scripts": {
     "pretest": "npm run document",
     "test": "start-server-and-test :3000 unit",
-    "start": "ts-node node_modules/.bin/json-server db.json --middlewares node_modules/json-server-reset --middlewares ./add-guid.ts --middlewares ./schema-check.ts",
-    "reset": "http POST :3000/reset todos:=[]",
+    "start": "ts-node node_modules/.bin/json-server db.json --middlewares node_modules/json-server-reset --middlewares ./add-guid.ts --middlewares ./schema-check.ts --static .",
+    "reset": "node ./reset-db",
     "document": "ts-node document > schemas.md",
     "build": "tsc || true",
     "unit": "jest",
