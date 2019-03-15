@@ -21,11 +21,11 @@ describe('TodoMVC app', () => {
 
     // check response passes schema
     cy.get('@post')
-      .its('response.body')
-      .then(api.assertSchema('PostTodoResponse', '1.0.0'))
-
-    // check response has headers with schema name and version
-    cy.get('@post')
+      .then(post => {
+        api.assertSchema('PostTodoResponse', '1.0.0')(post.response.body)
+        return post
+      })
+      // check response has headers with schema name and version
       .its('response.headers')
       .should(headers => {
         expect(headers).to.have.property('x-schema-name', 'PostTodoResponse')
