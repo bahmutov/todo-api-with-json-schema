@@ -20,7 +20,7 @@ describe('TodoMVC app', () => {
     cy.get('.new-todo').type('Use schemas{enter}')
 
     // check response passes schema
-    cy.get('@post')
+    cy.wait('@post')
       .then(post => {
         api.assertSchema('PostTodoResponse', '1.0.0')(post.response.body)
         return post
