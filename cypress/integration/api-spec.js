@@ -55,10 +55,6 @@ describe('Todo API', () => {
     })
   })
 
-  it('has todo fixture matching schema', () => {
-    cy.fixture('todo').then(api.assertSchema('PostTodoRequest', '1.0.0'))
-  })
-
   it('returns new TODO item matching schema', () => {
     cy.fixture('todo').then(todo => {
       cy.request({

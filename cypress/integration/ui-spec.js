@@ -13,6 +13,21 @@ describe('TodoMVC app', () => {
     })
   })
 
+  it('sets response headers with schema version', () => {
+    cy.server()
+    cy.route('POST', '/todos').as('post')
+    cy.visit('/')
+    cy.get('.new-todo').type('Use schemas{enter}')
+
+    cy.wait('@post')
+      // check response has headers with schema name and version
+      .its('response.headers')
+      .should(headers => {
+        expect(headers).to.have.property('x-schema-name', 'PostTodoResponse')
+        expect(headers).to.have.property('x-schema-version', '1.0.0')
+      })
+  })
+
   it('returns new item matching schema', () => {
     cy.server()
     cy.route('POST', '/todos').as('post')
@@ -21,15 +36,7 @@ describe('TodoMVC app', () => {
 
     // check response passes schema
     cy.wait('@post')
-      .then(post => {
-        api.assertSchema('PostTodoResponse', '1.0.0')(post.response.body)
-        return post
-      })
-      // check response has headers with schema name and version
-      .its('response.headers')
-      .should(headers => {
-        expect(headers).to.have.property('x-schema-name', 'PostTodoResponse')
-        expect(headers).to.have.property('x-schema-version', '1.0.0')
-      })
+      .its('response.body')
+      .should(api.assertSchema('PostTodoResponse', '1.0.0'))
   })
 })
