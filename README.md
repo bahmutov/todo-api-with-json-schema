@@ -18,5 +18,9 @@ This project declares the following [schemas](schemas.md). Then the schemas are 
 - [cypress/integration/api-spec.js](cypress/integration/api-spec.js) validates REST api calls against response schema
 - [cypress/integration/ui-spec.js](cypress/integration/ui-spec.js) drives the web application via DOM UI and validates the Ajax calls from the application to the server using data schema
 
+## Ramda
+
+If you use [Ramda](https://ramdajs.com/docs/) or [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) you can use curried schema tools functions to create terse functions to validate and sanitize lists of objects. See [cypress/integration/ui-spec.js](cypress/integration/ui-spec.js) for examples.
+
 [renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
 [renovate-app]: https://renovateapp.com/
