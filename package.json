@@ -48,7 +48,7 @@
     "@types/uuid": "3.4.4",
     "cypress": "3.2.0",
     "got": "8.3.2",
-    "jest": "23.6.0",
+    "jest": "24.5.0",
     "prettier": "1.16.4",
     "ramda": "0.26.1",
     "start-server-and-test": "1.7.12",
