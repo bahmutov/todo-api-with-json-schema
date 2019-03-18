@@ -43,11 +43,11 @@
     "uuid": "3.3.2"
   },
   "devDependencies": {
-    "@types/got": "8.3.5",
+    "@types/got": "9.4.1",
     "@types/jest": "22.2.3",
     "@types/uuid": "3.4.4",
     "cypress": "3.2.0",
-    "got": "8.3.2",
+    "got": "9.6.0",
     "jest": "24.5.0",
     "prettier": "1.16.4",
     "ramda": "0.26.1",
