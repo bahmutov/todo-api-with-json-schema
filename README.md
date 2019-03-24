@@ -2,8 +2,18 @@
 
 [![CircleCI](https://circleci.com/gh/bahmutov/todo-api-with-json-schema.svg?style=svg)](https://circleci.com/gh/bahmutov/todo-api-with-json-schema) [![renovate-app badge][renovate-badge]][renovate-app]
 
-
 This is a demo application showing how to use JSON schemas to validate data flowing in the system.
+
+## Run locally
+
+After cloning the repo, execute from the terminal
+
+```bash
+npm install
+npm run dev
+```
+
+Application should be running at `localhost:3000` and Cypress should open.
 
 ## Information
 
@@ -17,6 +27,10 @@ This project declares the following [schemas](schemas.md). Then the schemas are 
 - [cypress/integration/fixture-spec.js](cypress/integration/fixture-spec.js) to validate fixture files against a schema
 - [cypress/integration/api-spec.js](cypress/integration/api-spec.js) validates REST api calls against response schema
 - [cypress/integration/ui-spec.js](cypress/integration/ui-spec.js) drives the web application via DOM UI and validates the Ajax calls from the application to the server using data schema
+
+Example error message when a fixture object does not match the schema
+
+![Fixture schema error](images/fixture-does-not-match-schema.png)
 
 ## Ramda
 
