@@ -29,6 +29,9 @@ declare namespace Cypress {
       .should('followSchema', 'mySchemaName', '2.1.0')
     cy.fixture('filename')
       .should('followSchema', 'PostTodoRequest', '1.0.0')
+    cy.wait('@networkCallAlias')
+      .its('response.body')
+      .should('followSchema', 'PostTodoResponse', '1.0.0')
     ```
     * */
     (chainer: 'followSchema',

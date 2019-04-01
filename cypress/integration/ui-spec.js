@@ -57,7 +57,7 @@ describe('TodoMVC app', () => {
       })
   })
 
-  it('returns new item matching schema', () => {
+  it('returns new item matching schema (assert)', () => {
     cy.server()
     cy.route('POST', '/todos').as('post')
     cy.visit('/')
@@ -67,6 +67,18 @@ describe('TodoMVC app', () => {
     cy.wait('@post')
       .its('response.body')
       .should(assertTodo)
+  })
+
+  it('returns new item matching schema', () => {
+    cy.server()
+    cy.route('POST', '/todos').as('post')
+    cy.visit('/')
+    cy.get('.new-todo').type('Use schemas{enter}')
+
+    // check response passes schema
+    cy.wait('@post')
+      .its('response.body')
+      .should('followSchema', 'PostTodoResponse', '1.0.0')
   })
 
   it('returns the list of Todos matching schema', () => {
