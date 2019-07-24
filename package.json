@@ -43,7 +43,7 @@
     "uuid": "3.3.2"
   },
   "devDependencies": {
-    "@types/got": "9.6.2",
+    "@types/got": "9.6.3",
     "@types/jest": "24.0.15",
     "@types/uuid": "3.4.5",
     "cypress": "3.4.0",
