@@ -52,7 +52,7 @@
     "prettier": "1.18.2",
     "ramda": "0.26.1",
     "start-server-and-test": "1.10.0",
-    "ts-jest": "24.0.2"
+    "ts-jest": "24.1.0"
   },
   "jest": {
     "transform": {
