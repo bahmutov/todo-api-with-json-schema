@@ -49,7 +49,7 @@
     "cypress": "3.6.1",
     "got": "9.6.0",
     "jest": "24.9.0",
-    "prettier": "1.19.0",
+    "prettier": "1.19.1",
     "ramda": "0.26.1",
     "start-server-and-test": "1.10.6",
     "ts-jest": "24.1.0"
