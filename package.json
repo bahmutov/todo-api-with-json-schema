@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@types/got": "9.6.12",
-    "@types/jest": "24.9.1",
+    "@types/jest": "27.0.2",
     "@types/uuid": "3.4.10",
     "cypress": "6.9.1",
     "got": "9.6.0",
