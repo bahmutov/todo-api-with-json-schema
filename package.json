@@ -46,7 +46,7 @@
     "@types/got": "9.6.12",
     "@types/jest": "24.9.1",
     "@types/uuid": "3.4.10",
-    "cypress": "6.9.1",
+    "cypress": "8.7.0",
     "got": "9.6.0",
     "jest": "24.9.0",
     "prettier": "1.19.1",
