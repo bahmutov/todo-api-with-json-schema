@@ -36,7 +36,7 @@
   "dependencies": {
     "@cypress/schema-tools": "4.7.10",
     "json-server": "0.17.4",
-    "json-server-reset": "1.6.1",
+    "json-server-reset": "1.6.4",
     "quote": "0.4.0",
     "ts-node": "8.10.2",
     "typescript": "3.9.10",
